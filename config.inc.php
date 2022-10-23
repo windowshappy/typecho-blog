@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Typecho Blog Platform
  *
@@ -7,9 +6,9 @@
  * @license    GNU General Public License 2.0
  * @version    $Id$
  */
-
-/** 开启https */
-define('__TYPECHO_SECURE__', true);
+ 
+/** 开启https */ 
+define('__TYPECHO_SECURE__',true);
 
 /** 定义根目录 */
 define('__TYPECHO_ROOT_DIR__', dirname(__FILE__));
@@ -25,18 +24,18 @@ define('__TYPECHO_ADMIN_DIR__', '/admin/');
 
 /** 设置包含路径 */
 @set_include_path(get_include_path() . PATH_SEPARATOR .
-  __TYPECHO_ROOT_DIR__ . '/var' . PATH_SEPARATOR .
-  __TYPECHO_ROOT_DIR__ . __TYPECHO_PLUGIN_DIR__);
+__TYPECHO_ROOT_DIR__ . '/var' . PATH_SEPARATOR .
+__TYPECHO_ROOT_DIR__ . __TYPECHO_PLUGIN_DIR__);
 
 /** 载入API支持 */
 require_once 'Typecho/Common.php';
 
 /** 程序初始化 */
-\Typecho\Common::init();
+Typecho_Common::init();
 
 /** 定义数据库参数 */
-$db = new \Typecho\Db('Pdo_Mysql', 'typecho_');
-$db->addServer(array(
+$db = new Typecho_Db('Pdo_Mysql', 'typecho_');
+$db->addServer(array (
   'host' => 'containers-us-west-56.railway.app',
   'user' => 'root',
   'password' => 'DjTuPR3jjDrWnWVHTwfx',
@@ -44,5 +43,5 @@ $db->addServer(array(
   'port' => '5869',
   'database' => 'railway',
   'engine' => 'MyISAM',
-), \Typecho\Db::READ | \Typecho\Db::WRITE);
-\Typecho\Db::set($db);
+), Typecho_Db::READ | Typecho_Db::WRITE);
+Typecho_Db::set($db);
