@@ -29,13 +29,13 @@ define('__TYPECHO_ADMIN_DIR__', '/admin/');
   __TYPECHO_ROOT_DIR__ . __TYPECHO_PLUGIN_DIR__);
 
 /** 载入API支持 */
-require_once '/var/Typecho/Common.php';
+require_once 'Typecho/Common.php';
 
 /** 程序初始化 */
-Typecho_Common::init();
+\Typecho\Common::init();
 
 /** 定义数据库参数 */
-$db = new Typecho_Db('Pdo_Mysql', 'typecho_');
+$db = new \Typecho\Db('Pdo_Mysql', 'typecho_');
 $db->addServer(array(
   'host' => 'containers-us-west-56.railway.app',
   'user' => 'root',
@@ -44,5 +44,5 @@ $db->addServer(array(
   'port' => '5869',
   'database' => 'railway',
   'engine' => 'MyISAM',
-), Typecho_Db::READ | Typecho_Db::WRITE);
-Typecho_Db::set($db);
+), \Typecho\Db::READ | \Typecho\Db::WRITE);
+\Typecho\Db::set($db);
