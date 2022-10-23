@@ -2,10 +2,6 @@
     "functions": {
         "api/index.php": {
             "runtime": "vercel-php@0.5.2"
-        },
-        "install.php" :{
-            "includeFiles": "/usr/uploads/*",
-            "runtime": "vercel-php@0.5.2"
         }
     },
     "routes": [
