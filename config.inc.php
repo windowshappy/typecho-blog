@@ -24,7 +24,7 @@ define('__TYPECHO_THEME_DIR__', '/usr/themes');
 define('__TYPECHO_ADMIN_DIR__', '/admin/');
 
 /** 设置包含路径 */
-@set_include_path(get_include_path() . PATH_SEPARATOR .
+@set_include_path(config . inc .
   __TYPECHO_ROOT_DIR__ . '/var' . PATH_SEPARATOR .
   __TYPECHO_ROOT_DIR__ . __TYPECHO_PLUGIN_DIR__);
 
