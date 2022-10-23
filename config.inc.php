@@ -29,7 +29,7 @@ define('__TYPECHO_ADMIN_DIR__', '/admin/');
   __TYPECHO_ROOT_DIR__ . __TYPECHO_PLUGIN_DIR__);
 
 /** 载入API支持 */
-require_once 'Typecho/Common.php';
+require_once '/var/Typecho/Common.php';
 
 /** 程序初始化 */
 Typecho_Common::init();
