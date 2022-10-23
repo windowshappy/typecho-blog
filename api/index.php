@@ -1,5 +1,5 @@
 <?php
-$file = __DIR__ . '/build' . $_SERVER["PHP_SELF"];
+$file = __DIR__ . '/..' . $_SERVER["PHP_SELF"];
 
 if (file_exists($file)) {
     return false;
