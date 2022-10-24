@@ -1055,8 +1055,8 @@ class Archive extends Contents
     {
         $rules = [];
         $allows = [
-            'description'  => htmlspecialchars($this->description),
-            'keywords'     => htmlspecialchars($this->keywords),
+            'description'  => htmlspecialchars($this->description==null? "...":$this->description),
+            'keywords'     => htmlspecialchars($this->keywords==null? "...":$this->keywords),
             'generator'    => $this->options->generator,
             'template'     => $this->options->theme,
             'pingback'     => $this->options->xmlRpcUrl,
