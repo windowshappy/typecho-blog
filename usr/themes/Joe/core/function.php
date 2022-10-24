@@ -244,7 +244,7 @@ function _getParentReply($parent)
 	if ($parent !== "0") {
 		$db = \Typecho\Db::get();
 		$commentInfo = $db->fetchRow($db->select('author')->from('table.comments')->where('coid = ?', $parent));
-		if (!empty($commentInfo['author'])){
+		if ($commentInfo!=null and !empty($commentInfo['author'])){
 			echo '<div class="parent"><span style="vertical-align: 1px;">@</span> ' . $commentInfo['author'] . '</div>';
 		}
 		
