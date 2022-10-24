@@ -18,6 +18,8 @@ define('__TYPECHO_ADMIN_DIR__', '/admin/');
  */
 define('__TYPECHO_GRAVATAR_PREFIX__', 'https://cravatar.cn/avatar/');
 
+/** 开启gzip压缩 */
+ob_start('ob_gzhandler');
 
 // register autoload
 require_once __TYPECHO_ROOT_DIR__ . '/var/Typecho/Common.php';
