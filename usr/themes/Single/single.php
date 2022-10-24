@@ -48,7 +48,7 @@ class Single {
         if(isset($_COOKIE["night"])){
             echo $_COOKIE["night"] == "true" ? ' class="neon"' : '';
         }
-        else if(Typecho_Widget::widget('Widget_Options') -> night_mode == 2){
+        else if(\Typecho\Widget::widget('Widget_Options') -> night_mode == 2){
             echo ' class="neon"';
         }
     }
