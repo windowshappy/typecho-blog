@@ -1,5 +1,5 @@
 <?php
-class Sitemap_API extends Typecho_Widget implements Widget_Interface_Do
+class Sitemap_API extends \Typecho\Widget implements Widget_Interface_Do
 {
     public function action()
     {
