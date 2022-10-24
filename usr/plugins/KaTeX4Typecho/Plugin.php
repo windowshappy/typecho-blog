@@ -17,8 +17,8 @@ class KaTeX4Typecho_Plugin implements Typecho_Plugin_Interface {
      * @throws Typecho_Plugin_Exception
      */
     public static function activate() {
-        Typecho_Plugin::factory('Widget_Archive')->header = array('KaTeX4Typecho_Plugin', 'header');
-        Typecho_Plugin::factory('Widget_Archive')->footer = array('KaTeX4Typecho_Plugin', 'footer');
+        \Typecho\Plugin::factory('Widget_Archive')->header = array('KaTeX4Typecho_Plugin', 'header');
+        \Typecho\Plugin::factory('Widget_Archive')->footer = array('KaTeX4Typecho_Plugin', 'footer');
     }
 
     /**
@@ -39,10 +39,10 @@ class KaTeX4Typecho_Plugin implements Typecho_Plugin_Interface {
      * @param Typecho_Widget_Helper_Form $form 配置面板
      * @return void
      */
-	public static function config(Typecho_Widget_Helper_Form $form) {
-		$delimiter = new Typecho_Widget_Helper_Form_Element_Text('delimiter', NULL, _t('{left: "$$", right: "$$", display: false},{left: "\\\\[", right: "\\\\]", display: true}'), _t('公式标识符 Delimiters for equations:'), _t('输入识别公式所用的标识符，每个{}内为一组，left 后为左标识符，right 后为右标识符,display 后 true 表示段落模式，false 表示行内模式。Input the DELIMITERS for recognizing equations. Each {} for a set. "left" means left delimiter. "right" means right delimiter. In "display", "true" means standalone mode; “false” means inline mode.'));
+	public static function config(\Typecho\Widget\Helper\Form $form) {
+		$delimiter = new \Typecho\Widget\Helper\Form\Element\Text('delimiter', NULL, _t('{left: "$$", right: "$$", display: false},{left: "\\\\[", right: "\\\\]", display: true}'), _t('公式标识符 Delimiters for equations:'), _t('输入识别公式所用的标识符，每个{}内为一组，left 后为左标识符，right 后为右标识符,display 后 true 表示段落模式，false 表示行内模式。Input the DELIMITERS for recognizing equations. Each {} for a set. "left" means left delimiter. "right" means right delimiter. In "display", "true" means standalone mode; “false” means inline mode.'));
         $form->addInput($delimiter);
-		$ignoredtag = new Typecho_Widget_Helper_Form_Element_Text('ignoredtag', NULL, _t('"script", "noscript", "style", "textarea", "pre", "code"'), _t('忽略的标签 Ignored Tags:'), _t('输入禁止公式渲染的标签。Input the IGNORED TAGS for KaTeX rendering.'));
+		$ignoredtag = new \Typecho\Widget\Helper\Form\Element\Text('ignoredtag', NULL, _t('"script", "noscript", "style", "textarea", "pre", "code"'), _t('忽略的标签 Ignored Tags:'), _t('输入禁止公式渲染的标签。Input the IGNORED TAGS for KaTeX rendering.'));
         $form->addInput($ignoredtag);
     }
 
@@ -53,7 +53,7 @@ class KaTeX4Typecho_Plugin implements Typecho_Plugin_Interface {
      * @param Typecho_Widget_Helper_Form $form
      * @return void
      */
-    public static function personalConfig(Typecho_Widget_Helper_Form $form) {
+    public static function personalConfig(\Typecho\Widget\Helper\Form $form) {
     }
 
     /**
