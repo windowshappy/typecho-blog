@@ -580,7 +580,7 @@ function sharpen_image($image)
 function exif_orientation($orientation, &$image)
 {
   if (empty($orientation) || !is_numeric($orientation) || $orientation < 3 || $orientation > 8) return;
-  $image = imagerotate($image, array(6 => 270, 5 => 270, 3 => 180, 4 => 180, 8 => 90, 7 => 90)[$orientation], null);
+  $image = imagerotate($image, array(6 => 270, 5 => 270, 3 => 180, 4 => 180, 8 => 90, 7 => 90)[$orientation], 0);
   if (in_array($orientation, array(5, 4, 7)) && function_exists('imageflip')) imageflip($image, IMG_FLIP_HORIZONTAL);
   return true;
 }
