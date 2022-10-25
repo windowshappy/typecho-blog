@@ -10,7 +10,7 @@ $this->need('header.php');
 
 <div class="main-content archive-page clearfix">
 	<?php
-    $stat = Typecho_Widget::widget('Widget_Stat');
+    $stat = \Typecho\Widget::widget('Widget_Stat');
     $this->widget('Widget_Contents_Post_Recent', 'pageSize='.$stat->publishedPostsNum)->to($archives);
     $year=0; $mon=0; $i=0; $j=0;
     $output = '<div class="categorys-item">';
