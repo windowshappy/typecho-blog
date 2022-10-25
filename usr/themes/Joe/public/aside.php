@@ -6,7 +6,7 @@
             <a class="link" href="<?php $this->options->JAside_Author_Link() ?>" target="_blank" rel="noopener noreferrer nofollow"><?php $this->options->JAside_Author_Nick ? $this->options->JAside_Author_Nick() : ($this->authorId ? $this->author->screenName() : $this->user->screenName()); ?></a>
             <p class="motto joe_motto"></p>
         </div>
-        <?php Typecho_Widget::widget('Widget_Stat')->to($item); ?>
+        <?php \Typecho\Widget::widget('Widget_Stat')->to($item); ?>
         <div class="count">
             <div class="item" title="累计文章数">
                 <span class="num"><?php echo number_format($item->publishedPostsNum); ?></span>
@@ -42,14 +42,14 @@
         <?php
         $time = time();
         $todayDate = date('m/d', $time);
-        $db = Typecho_Db::get();
+        $db = \Typecho\Db::get();
         $prefix = $db->getPrefix();
         $sql = "SELECT * FROM `{$prefix}contents` WHERE created < {$time} and FROM_UNIXTIME(created, '%m/%d') = '{$todayDate}' and type = 'post' and status = 'publish' and (password is NULL or password = '') LIMIT 10";
         $result = $db->query($sql);
         $historyTodaylist = [];
         if ($result instanceof Traversable) {
             foreach ($result as $item) {
-                $item = Typecho_Widget::widget('Widget_Abstract_Contents')->push($item);
+                $item = \Typecho\Widget::widget('Widget_Abstract_Contents')->push($item);
                 $historyTodaylist[] = array(
                     "title" => htmlspecialchars($item['title']),
                     "permalink" => $item['permalink'],
